@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+#
+#  jagoancoind The Jagoancoin Core server.
+#
+#
+# chkconfig: 345 80 20
+# description: jagoancoind
+# processname: jagoancoind
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/jagoancoind, see below
+if [ -f /etc/sysconfig/jagoancoind ]; then
+        . /etc/sysconfig/jagoancoind
+fi
+
+RETVAL=0
+
+prog=jagoancoind
+# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/jagoancoind
+lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/jagoancoind}
+
+# jagoancoind defaults to /usr/bin/jagoancoind, override with BITCOIND_BIN
+jagoancoind=${BITCOIND_BIN-/usr/bin/jagoancoind}
+
+# jagoancoind opts default to -disablewallet, override with BITCOIND_OPTS
+jagoancoind_opts=${BITCOIND_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $jagoancoind $jagoancoind_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

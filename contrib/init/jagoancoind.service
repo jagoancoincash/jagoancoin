@@ -1,0 +1,22 @@
+[Unit]
+Description=Jagoancoin's distributed currency daemon
+After=network.target
+
+[Service]
+User=jagoancoincore
+Group=jagoancoincore
+
+Type=forking
+PIDFile=/var/lib/jagoancoind/jagoancoind.pid
+ExecStart=/usr/bin/jagoancoind -daemon -pid=/var/lib/jagoancoind/jagoancoind.pid \
+-conf=/etc/jagoancoincore/jagoancoin.conf -datadir=/var/lib/jagoancoind -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

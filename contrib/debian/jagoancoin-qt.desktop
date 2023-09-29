@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Jagoancoin Core
+Comment=Jagoancoin P2P Cryptocurrency
+Comment[de]=Verbinde mit dem Jagoancoin peer-to-peer Netzwerk
+Comment[fr]=Jagoancoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Jagoancoin, eşten eşe kriptografik sanal para birimi
+Exec=jagoancoin-qt %u
+Terminal=false
+Type=Application
+Icon=jagoancoin128
+MimeType=x-scheme-handler/jagoancoin;
+Categories=Office;Finance;

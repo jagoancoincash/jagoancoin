@@ -1,0 +1,6 @@
+usr/local/bin/jagoancoin-qt usr/bin
+share/pixmaps/jagoancoin32.xpm usr/share/pixmaps
+share/pixmaps/jagoancoin16.xpm usr/share/pixmaps
+share/pixmaps/jagoancoin128.png usr/share/pixmaps
+debian/jagoancoin-qt.desktop usr/share/applications
+debian/jagoancoin-qt.protocol usr/share/kde4/services/
