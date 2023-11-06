@@ -66,3 +66,6 @@ Changes should be tested by somebody other than the developer who wrote the
 code. This is especially important for large or high-risk changes. It is useful
 to add a test plan to the pull request description if testing the changes is
 not straightforward.
+
+### Donation for Development
+Jagoancoin (JGC) https://explorer.jagoancoin.online/address/JVuw28j3Cq7H6jExAQewAjY24n6Ur9MqMG
